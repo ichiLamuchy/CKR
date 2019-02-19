@@ -1,7 +1,7 @@
 #include <stdio.h>
 /* copy input to out put, print eof first*/
 
-main(){
+int main(){
     int c;
     int eof = EOF; 
 

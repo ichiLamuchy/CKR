@@ -1,5 +1,6 @@
 #include <stdio.h>
-/* sopy its input to output make visible on tab to \t blank space to \b backslash to \\ */
+
+/* copy its input to output make visible on tab to \t blank space to \b backslash to \\ */
 int main(){
     int c, tab, space, backslash;
     tab = 't';

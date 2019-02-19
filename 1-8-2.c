@@ -1,6 +1,6 @@
 #include <stdio.h>
 /* Count tabs blanks and new lines dont know if excute */
-main(){
+int main(){
 
     int c, i;
     i = 0;

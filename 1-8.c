@@ -1,6 +1,7 @@
 #include <stdio.h>
 /* Count tabs blanks and new lines */
-main(){
+
+int main(){
     int c, i;
     i = 0;
     while ((c = getchar())!= EOF)    

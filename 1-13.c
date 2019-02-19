@@ -31,28 +31,27 @@ int main(){
     for (m = maxvalue; m >= 0; --m){
         for (l = 0; l < 20; ++l){
 
-                if (arr[l] == 100 ){
-                    printf ("|");
-                }
+            if (arr[l] == 100 ){
+                printf ("|");
+            }
 
-                else if (arr[l] == 50 ){
-                    printf (" ");
-                    arr[l] = 100; 
+            else if (arr[l] == 50 ){
+                printf (" ");
+                arr[l] = 100; 
+            }
+            
+            else if (arr[l] == m ){
+                printf ("-");                    
+                if (arr [l - 1] == 0){
+                    arr [l - 1] = 100;
                 }
-                
-                else if (arr[l] == m ){
-                    printf ("-");                    
-                    if (arr [l - 1] == 0){
-                        arr [l - 1] = 100;
-                    }
-                    if (arr [l + 1] == 0){
-                        arr [l + 1] = 50;
-                    }
+                if (arr [l + 1] == 0){
+                    arr [l + 1] = 50;
                 }
-                else{
-                    printf (" ");
-                }
-                
+            }
+            else{
+                printf (" ");
+            }                
         }
         printf ("\n");
     }

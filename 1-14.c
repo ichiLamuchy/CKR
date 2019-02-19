@@ -1,8 +1,8 @@
 /* write histogramme of frequesncy of charactors in its input*/
-// get input
-// if it is alphabet then add it on to the appropriate index
+
 # include <stdio.h>
-main(){
+
+int main(){
     int i, j, k, l, m, c, maxvalue, maxindex;
     k = c = l = m = maxvalue = maxindex = 0;
     // 26 * 2
@@ -39,7 +39,6 @@ main(){
                 if (arr[l] == 100 ){
                     printf ("|");
                 }
-
                 else if (arr[l] == 50 ){
                     printf (" ");
                     arr[l] = 100; 
@@ -48,8 +47,8 @@ main(){
                     printf (" ");
                 }
                 else if (arr[l] == m ){
-
-                    printf ("-");                    
+                       printf ("-");                    
+                    
                     if (arr [l - 1] == 0){
                         arr [l - 1] = 100;
                     }
