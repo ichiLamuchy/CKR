@@ -1,8 +1,12 @@
+#include <stdio.h>
+#define VLINE 100 /* to be print out "|" */
+#define NEXT__VLINE 50  /* to be print out " "  once then "|" after that*/
+
 /* write histogramme of the lengh of words in its input*/
-# include <stdio.h>
 int main(){
-    int i, j, k, l, m, c, wc, maxvalue, maxindex;
-    k = c = wc = l = m = j = maxvalue = maxindex = 0;
+
+    int i, k, l, m, c, wc, maxvalue;
+    k = c = wc = l = m = maxvalue = 0;
     int arr [20];
 
         for (i = 0 ; i < 20; i++){
@@ -10,16 +14,16 @@ int main(){
         }
         
         while ((c = getchar()) != EOF){
-            // count number of word
+            // count any input
             ++wc;
+            // prepare array for printing histograme
             if (c == ' ' | c == '\n' | c == '\t' ){            
                 --wc;
                 if (wc != 0){
                     ++arr [wc * 2];
                     k = arr [wc * 2];
                     if (maxvalue < k){
-                        maxvalue = k;
-                        maxindex = wc * 2;    
+                        maxvalue = k;  
                     }
                     wc = 0;
                 }
@@ -31,22 +35,22 @@ int main(){
     for (m = maxvalue; m >= 0; --m){
         for (l = 0; l < 20; ++l){
 
-            if (arr[l] == 100 ){
+            if (arr[l] == VLINE ){
                 printf ("|");
             }
 
-            else if (arr[l] == 50 ){
+            else if (arr[l] == NEXT__VLINE ){
                 printf (" ");
-                arr[l] = 100; 
+                arr[l] = VLINE; 
             }
             
-            else if (arr[l] == m ){
-                printf ("-");                    
+            else if (arr[l] == m && m != 0 ){
+                printf ("_");                    
                 if (arr [l - 1] == 0){
-                    arr [l - 1] = 100;
+                    arr [l - 1] = VLINE;
                 }
                 if (arr [l + 1] == 0){
-                    arr [l + 1] = 50;
+                    arr [l + 1] = NEXT__VLINE;
                 }
             }
             else{
