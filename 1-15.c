@@ -2,8 +2,8 @@
 
 float convertFtoC (float fah);
 
-main(){
-    float fah, cel;
+int main(){
+    float fah;
     int lower, upper, step;
 
     /* Limit on Fahrenheit and a step declearation*/
