@@ -1,15 +1,16 @@
 #include <stdio.h>
-#define MAXLINE 50      /* maximum input of size */
+#define MAXLINE 50              /* maximum input of size */
 
 int getLine(char line[], int maxline);
 void copy(char to[], char from[]);
 
+
 /* print longest input line */
 int main (){
-    int len;            /* current line length */
-    int max;            /* max line  length */
-    char line[MAXLINE]; /* current input line - string */
-    char longest[MAXLINE];   /* longest input line */
+    int len;                    /* current line length */
+    int max;                    /* max line  length */
+    char line[MAXLINE];         /* current input line - string */
+    char longest[MAXLINE];      /* longest input line */
 
     max = 0;
     while ((len = getLine (line, MAXLINE)) > 0){
@@ -24,22 +25,32 @@ int main (){
     return 0;
 }
 
-/* getLine:     read a line return int - the length (changed from getline as stdio.h has a declared func with the same name) */
-/* arg[0]: char a is line text, arg[1]: int lim is the maimum limit of the length of char a */
+
+
+/* 
+    getLine:     read a line return int - the length 
+    (changed the name from getline as stdio.h has a declared func with the same name) 
+    arg[0]: char array - input text
+    arg[1]: int -  the maimum limit of the length of input text (arg [0]) 
+*/
 int  getLine(char a[], int lim){
     
     int c, i;
 
-    for (i = 0; i < lim-1 && (c = getchar()) != EOF && c != '\n'; ++i){
+    for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i){
         a[i] = c;
     }
     if (c == '\n') {
-        a[i] = '\0';  /* null */   
+        a[i] = '\0';            /* null */   
     }  
     return i;
 }
 
-/* copy:        copy from into to */
+/* 
+    copy:     read a line copy onto a new array  
+    arg[0]: char array - where copying to 
+    arg[1]: char array - where it copy from
+*/
 void copy(char to[], char from[]){
     int i;
 
@@ -47,5 +58,5 @@ void copy(char to[], char from[]){
     while ((to[i] = from[i]) != '\0'){
         ++i;
     }
-    to[i] = '\0'; /* Let's add a null :)*/
+    to[i] = '\0';               /* Let's add a null :)*/
 }
