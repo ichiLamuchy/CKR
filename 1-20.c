@@ -5,20 +5,34 @@ should that n be parameter or variable
 
 #define MAXNUMBER 100 // Max number of input
 
-void detab(char input[], int c, int lim);
+int detab(char input[], int c, int lim);
+void copyAppend(char to[], char from[], int j);
 
 int main (){
-    //char line [MAXNUMBER];
-
-    int c;
-    char arr[MAXNUMBER];
-    //printf ("Please enter the number \nyou would like to convert a tab to whitespace? Press enter when you finish. \n");
-    //c = getchar();
-    //printf ("Thank you, the number you enter is %d, ", c-48);
-    //printf ("Please now enter input you would like");
     
+    char line[MAXNUMBER];         /* current input line - string */
+    char allLines[MAXNUMBER];     /* lappended input line */
+    int len;                    /* line length by getchar */   
+    int j;  
+    j = 0;
+    int c;
+    // replacing tab to the numer of white space
     c = 2;
-    detab (arr, c, MAXNUMBER);
+   
+    while ((len = detab (line, c, MAXNUMBER)) > 0)
+    {      
+            copyAppend (allLines, line, j);
+            // donot overwrite '\n'
+            j = j + len + 1;   
+    }
+                      
+    // overwrite '\n'
+    --j;
+    printf ("The last index is %d \n", j);
+    allLines[j] = '\0';
+    printf("%s \n", allLines);
+
+    return 0;
 }
 
 /* 
@@ -27,7 +41,7 @@ arg[0] char array
 arg[1] number of the white space per tab
 arg[2] maxmum input text number
 */
-void detab(char input[], int c, int lim){
+int detab(char input[], int c, int lim){
     int i, j, k;
     // getchar up till eof or newline
     for (i = 0; i < lim - 1 && (k = getchar()) != EOF && k != '\n'; i++){
@@ -44,6 +58,22 @@ void detab(char input[], int c, int lim){
         }
     }
     input [i] = '\0';
-    printf ("Input are are %s, \n", input);   
+    return i;
+}
+
+/* 
+    copyAppend:     read a line append onto  
+    arg[0]: char array - where appending to 
+    arg[1]: char array - to get appended onto arg[0]
+    arg[2]: int - index of arg[0] where appending from 
+*/
+void copyAppend (char to[], char from[], int j){    
+    int i;
+    i = 0;
+    while ((to[j] = from[i]) != '\0'){
+        ++i;       
+        ++j;
+    }
+    to[j] = '\n';   
 }
 
