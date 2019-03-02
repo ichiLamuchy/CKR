@@ -9,7 +9,7 @@ Create entab programe - replace 4 white space in the input to a tub
 #define WS 4                        // white space
 
 int getLine(char input[], int lim);
-bool entab(char input[], int c, int i);
+bool entab(char input[], int c);
 void copyAppend(char to[], char from[], int i);
 
 
@@ -41,15 +41,14 @@ int main(){
     entub:     switch tub to number of white spaces
     arg[0]: char array - input text
     arg[1]: current index number
-    arg[2]: number of the white space per tab
 */
 
-bool entub (char input[], int i, int c){
+bool entub (char input[], int i){
     int j;
     j=1;
-    while (j < c && input[i-j] == ' '){
+    while (j < WS && input[i-j] == ' '){
         j++;
-        if (j == c){
+        if (j == WS){
 
             return true;
         }
@@ -70,7 +69,7 @@ int getLine(char input[], int lim){
         // when tab detected        
         if (k == ' '){
             // changer tab to 
-            if (entub (input, i, WS)){
+            if (entub (input, i)){
                 i = i - WS + 1;
                 input[i] = '\t';
             }
