@@ -1,31 +1,31 @@
 #include <stdio.h>
+
 /* detab programe - replace tub in the input to a set of numbrer of white space
 should that n be parameter or variable
 */
 
-#define MAXNUMBER 100 // Max number of input
+#define MAXNUMBER 100               // Max number of input
+#define WS 2                        // white space
 
-int detab(char input[], int c, int lim);
-void copyAppend(char to[], char from[], int j);
+int getLine(char input[], int lim);
+void detab(char input[], int c, int i);
+void copyAppend(char to[], char from[], int i);
 
-int main (){
+
+int main(){
     
-    char line[MAXNUMBER];         /* current input line - string */
-    char allLines[MAXNUMBER];     /* lappended input line */
-    int len;                    /* line length by getchar */   
+    char line[MAXNUMBER];               // current input line - string 
+    char allLines[MAXNUMBER];           // lappended input line 
+    int len;                            // line length by getchar  
     int j;  
     j = 0;
-    int c;
-    // replacing tab to the numer of white space
-    c = 2;
    
-    while ((len = detab (line, c, MAXNUMBER)) > 0)
+    while ((len = getLine (line, MAXNUMBER)) > 0)
     {      
-            copyAppend (allLines, line, j);
-            // donot overwrite '\n'
-            j = j + len + 1;   
+        copyAppend (allLines, line, j);
+        // donot overwrite '\n'
+        j = j + len + 1;   
     }
-                      
     // overwrite '\n'
     --j;
     printf ("The last index is %d \n", j);
@@ -35,22 +35,37 @@ int main (){
     return 0;
 }
 
+
+/* 
+    detub:     switch tub to w number of white spaces
+    (changed the name from getline as stdio.h has a declared func with the same name) 
+    arg[0]: char array - input text
+    arg[1]: current index number
+    arg[2]: number of the white space per tab
+*/
+
+void detub (char input[], int i, int c){
+    int j;
+    for (j = 0; j < c; j++){
+        input[i+j] = ' ';
+    }
+}
+
 /* 
 detab - take input then print out the line replacing tab to 2 white spaces
 arg[0] char array
-arg[1] number of the white space per tab
-arg[2] maxmum input text number
+arg[1] maxmum input text number
 */
-int detab(char input[], int c, int lim){
-    int i, j, k;
+
+int getLine(char input[], int lim){
+    int i, k;
     // getchar up till eof or newline
     for (i = 0; i < lim - 1 && (k = getchar()) != EOF && k != '\n'; i++){
         // when tab detected        
         if (k == '\t'){
-            for (j = 0; j < c; j++){
-                input[i+j] = ' ';
-            }
-            i = i + c-1;
+            // changer tab to 
+            detub (input, i, WS);
+            i = i + WS-1; 
         }
         // otherwise just assign
         else {
@@ -67,6 +82,7 @@ int detab(char input[], int c, int lim){
     arg[1]: char array - to get appended onto arg[0]
     arg[2]: int - index of arg[0] where appending from 
 */
+
 void copyAppend (char to[], char from[], int j){    
     int i;
     i = 0;
