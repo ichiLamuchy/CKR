@@ -38,8 +38,7 @@ int main(){
 
 
 /* 
-    detub:     switch tub to w number of white spaces
-    (changed the name from getline as stdio.h has a declared func with the same name) 
+    entub:     switch tub to number of white spaces
     arg[0]: char array - input text
     arg[1]: current index number
     arg[2]: number of the white space per tab
@@ -59,9 +58,9 @@ bool entub (char input[], int i, int c){
 }
 
 /* 
-detab - take input then print out the line replacing tab to 2 white spaces
-arg[0] char array
-arg[1] maxmum input text number
+    getLine:     read a line return int - the length 
+    arg[0]: char array - input text
+    arg[1]: int -  the maimum limit of the length of input text (arg [0]) 
 */
 
 int getLine(char input[], int lim){
