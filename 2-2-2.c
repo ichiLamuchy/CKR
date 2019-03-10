@@ -10,23 +10,19 @@ it prints out each line using printf
 
 #define MAXLINE 10      // Maxmum number of input perline
 #define MAXALL 100      // Maxmum nember of char can be store to all
-#define MAXNUMLINE 15   // Maxmum number of lines
 
 int getLine(char line[]);
 void copyAppend (char to[], char from[], int j);
 
 int main(){
     
-    // should be 0;
-    
     int i = 0;
     int len;
     char to [MAXALL];
-    //char from [MAXLINE];            // the current line
     char line [MAXLINE];            // line to get, it will pass to char from []
     while ((len = getLine(line)) > 0){
         copyAppend (to, line, i);
-        // need to get rid of '\0' if it is carry on
+        
         i = len + i + 1;
     }
     --i;
@@ -35,8 +31,11 @@ int main(){
     return 0;
 }
 
-/*
-
+/* 
+    getLine:     read a line return int - the length 
+    (changed the name from getline as stdio.h has a declared func with the same name) 
+    arg[0]: char array - input text
+    arg[1]: int -  the maimum limit of the length of input text (arg [0]) 
 */
 
 int getLine(char line[]){
@@ -60,9 +59,12 @@ int getLine(char line[]){
     line [i] = '\0';
     return i;
 }
-/*
 
-
+/* 
+    copyAppend:     read a line append onto  
+    arg[0]: char array - where appending to 
+    arg[1]: char array - to get appended onto arg[0]
+    arg[2]: int - index of arg[0] where appending from 
 */
 
 void copyAppend (char to[], char from[], int j){
