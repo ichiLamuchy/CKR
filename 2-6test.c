@@ -1,5 +1,3 @@
-
-
 /*
 Write a function setbits(x,p,n,y) that returns x with the n bits t
 hat begin at position p set to the rightmost n bits of y, 

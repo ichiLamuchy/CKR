@@ -9,7 +9,7 @@ leaving the other bits unchanged
 #include <math.h>
 #include <ctype.h>
 
-void c_test_bitwise_op (unsigned x, int p, int n, unsigned y);
+unsigned c_bitwise_op (unsigned x, int p, int n, unsigned y);
 
 int main (){
 
@@ -19,47 +19,22 @@ int main (){
     int p = 4;      
     int n = 2;
     
-    c_test_bitwise_op (i,p,n,y);
+    printf ("the result is %d \n", c_bitwise_op (i,p,n,y));
+
     return 0 ;
 }
 
-void c_test_bitwise_op (unsigned x, int p, int n, unsigned y){
-// steps to take
+unsigned c_bitwise_op (unsigned x, int p, int n, unsigned y){
+    
+    /*
+    create mask 11100111 then use & x -> xxx00xxx
+    extract n bits value from y then << p+1-n -> 000yy000
+    xxx00xxx | 000yy000
+    (when you need to convine just line up the mask either 0 (|) or 1 (&))
+    */
+    
 
-// 1 - with x we make xxx11xxx 
-
-// 1-1 we create 00011000 filter  - prefix 000 + nbits of 1 + suffix number of y
-printf ("(~(~0 << n))<< (p+1-n) is %d \n", (~(~0 << n))<< (p+1-n)); 
-// 1-2 then use or (|) to create the result
-printf ("x | ((~(~0 << n))<< (p+1-n)) is %d \n", x | (~(~0 << n))<< (p+1-n)); 
-
-// 2 - with y, we wanna create 111xx111 where xx is the value you extract from y
-
-// 2-1 to do it, we need to craete 11100111 filter to do 000xx000 to and (&)
-
-// 2-1-1 create 11100000
-printf ("(~0 << (p+1))is %d \n", (~0 << (p+1)));
-
-// 2-1-2 create 000000111
-printf ("(~0 << (p+1-n) is %d \n", (~0 << (p+1-n)));
-
-// or (|) operate on 11100000 | 00000111 should gives you 11100111 this is filter to get a value
-printf ("(~0 << (p+1)) | (~0 << (p+1-n)) is %d \n", (~0 << (p+1)) | (~0 << (p+1-n)));
-
-// 2-2 to create 000xx000 
-
-// 2-2-1 create 00000011 by ~(~0<<n)
-printf ("~(~0<<n) is %d \n", ~(~0<<n));
-
-// 2-2-2 y & 00000011 -- extract value of nbits from y
-printf ("(y & (~(~0<<n))  is %d \n", (y & (~(~0<<n))));
-
-// 2-2-3  ((y & 00000011 )<< (p+1-n)) - push it to the right place
-printf ("(y & (~(~0<<n))<< (p+1-n)is %d \n", (y & (~(~0<<n)))<< (p+1-n));
-
-// 3 combine to gether 11100111  & ((y & 00000011 )<< (p+1-n)) - push it to the right place
-
-printf ("(x | (~(~0 << n))<< (p+1-n))& (y & (~(~0<<n))<< (p+1-n)) is %d \n", (x | (~(~0 << n))<< (p+1-n))& (y & (~(~0<<n)))<< (p+1-n));
-printf ("done it should be 217 \n");
+    return ((x & ~(~(~0 << n) << (p+1-n))) | ((y & ~(~0<<n))<< (p+1-n)));
+   
 
 }
