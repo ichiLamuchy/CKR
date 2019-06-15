@@ -7,3 +7,16 @@ so that you can compile your C file on terminal
 
 
 export CC="cc -std=c99 -Wall -Werror -W -pedantic -O2 -g"
+
+to compiling example:
+
+```
+$CC 2-6.c
+```
+
+
+to execute: 
+
+```
+./a.out
+```
