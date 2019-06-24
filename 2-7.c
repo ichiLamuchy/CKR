@@ -23,37 +23,22 @@ int main(){
 
     return 0 ;
 
-
 }
 
 unsigned invert (unsigned x, int p, int n){
 
+    // version 2 just simply create 00011000 then ^ 
+    // ((1<<n)-1)<<(p+1-n) --- 24
+    printf ("test ((1<<n)-1)<<(p+1-n) is %d \n ", ((1<<n)-1)<<(p+1-n));
+    printf ("test (((1<<n)-1)<<(p+1-n)) ^ x is %d \n ", (((1<<n)-1)<<(p+1-n)) ^ x);
 
-    // step 1: x >> (p+1-n)  take off 3 bits so 11001  --- 25
-    printf ("test x >> (p+1-n) is %d \n ", x >> (p+1-n));
-
-    // step 2: flip ^  with 0011 so create mask (1<<n)-1  ----3
-    printf ("test (1<<n)-1 is %d \n ", (1<<n)-1);
-
-    // flip ^ 0010 ---26 ---> already flipped
-     printf ("test (x >> (p+1-n)) ^ ((1<<n)-1) is %d \n ", (x >> (p+1-n)) ^ ((1<<n)-1));
-
-    // put the space back to make xxxxx000 ---208
-    printf("test ((x >> (p+1-n)) ^ ((1<<n)-1)) << (p+1-n) is %d \n ", ((x >> (p+1-n)) ^ ((1<<n)-1)) << (p+1-n));
-
-    // now create 00000xxx - x & 00000111 -> (1<<(p+1-n))-1 ---7
-    
-    printf ("test ((1<<(p+1-n))-1 is %d \n ", (1<<(p+1-n))-1);
-
-    // x &  ---1
-    printf ("test ((1<<(p+1-n))-1 is %d \n ", x & ((1<<(p+1-n))-1));
-
-    printf ("test (x & ((1<<(p+1-n))-1)) ^ (((x >> (p+1-n)) ^ ((1<<n)-1)) << (p+1-n)) is %d \n ", (x & ((1<<(p+1-n))-1)) ^ (((x >> (p+1-n)) ^ ((1<<n)-1)) << (p+1-n)));
-
-return (x & ((1<<(p+1-n))-1)) ^ (((x >> (p+1-n)) ^ ((1<<n)-1)) << (p+1-n));
-
-
+    return (((1<<n)-1)<<(p+1-n)) ^ x;
 }
+
+/*
+Take away from here - if you wanna use mask starting 111 like 11100111 then just use ^ 00011000
+
+*/
 
 
 
