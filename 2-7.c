@@ -45,7 +45,7 @@ unsigned invert (unsigned x, int p, int n){
     
     printf ("test ((1<<(p+1-n))-1 is %d \n ", (1<<(p+1-n))-1);
 
-    // x &  -1
+    // x &  ---1
     printf ("test ((1<<(p+1-n))-1 is %d \n ", x & ((1<<(p+1-n))-1));
 
     printf ("test (x & ((1<<(p+1-n))-1)) ^ (((x >> (p+1-n)) ^ ((1<<n)-1)) << (p+1-n)) is %d \n ", (x & ((1<<(p+1-n))-1)) ^ (((x >> (p+1-n)) ^ ((1<<n)-1)) << (p+1-n)));
