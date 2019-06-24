@@ -9,7 +9,6 @@ unsigned rightrot(unsigned x, int n);
 
 int main(){
    
-    // test retun shoul be 01001110
     unsigned x = 201;    // 11001001
     
     int n = 3;
@@ -21,35 +20,20 @@ int main(){
 
 unsigned rightrot(unsigned x, int n){
 
-
-    // let's use log
-    printf ("using of log what is %d bits \n", (int) log2 (x));
-
-    
-
     int bits_of_x = (int) log2 (x) + 1;
 
-    printf ("%d \n", bits_of_x);
-
+    // printf ("%d \n", bits_of_x);
     //  x >> (bits_of_x - n) this is 5 so get rid of all unnecessary
-    //00011111  --> ((1 << bits_of_x-n)-1) & x ---> 01001 -->9
-    printf ("test %d \n", (((1 << (bits_of_x-n) )-1) & x));
+    // 00011111  --> ((1 << bits_of_x-n)-1) & x ---> 01001 -->9
+    // printf ("test %d \n", (((1 << (bits_of_x-n) )-1) & x));
     // then push it back to (((1 << (bits_of_x-n))-1) & x) << n  ----> 01001000 ---72
-    printf ("test %d \n", (((1 << (bits_of_x-n))-1) & x) << n);
+    // printf ("test %d \n", (((1 << (bits_of_x-n))-1) & x) << n);
     // make now only n bits from left x >> bits_of_x-n  this should be 110 - 6
-    printf ("test %d \n", x >> (bits_of_x-n));
+    // printf ("test %d \n", x >> (bits_of_x-n));
     // ^
-    printf ("test %d \n", ((((1 << (bits_of_x-n))-1) & x) << n) ^ (x >> (bits_of_x-n)));
-
-
-
+    //printf ("test %d \n", ((((1 << (bits_of_x-n))-1) & x) << n) ^ (x >> (bits_of_x-n)));
 
     return ((((1 << (bits_of_x-n))-1) & x) << n) ^ (x >> (bits_of_x-n));
 
 }
-
-
-
-
-
 
