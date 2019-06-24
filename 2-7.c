@@ -14,7 +14,7 @@ unsigned invert (unsigned x, int p, int n);
 int main(){
 
     // test on this - it should be 11010001 (209)
-    unsigned x = 106;    // 11001001
+    unsigned x = 201;    // 11001001
     
     int p = 4;      
     int n = 2;
@@ -28,60 +28,29 @@ int main(){
 
 unsigned invert (unsigned x, int p, int n){
 
-    // do the same p is 4 n is 2
 
-    // extract the value of n bits from position p
+    // step 1: x >> (p+1-n)  take off 3 bits so 11001  --- 25
+    printf ("test x >> (p+1-n) is %d \n ", x >> (p+1-n));
 
-    // make a mask 0011111 
-    //~(~0 << (p+1))
+    // step 2: flip ^  with 0011 so create mask (1<<n)-1  ----3
+    printf ("test (1<<n)-1 is %d \n ", (1<<n)-1);
+
+    // flip ^ 0010 ---26 ---> already flipped
+     printf ("test (x >> (p+1-n)) ^ ((1<<n)-1) is %d \n ", (x >> (p+1-n)) ^ ((1<<n)-1));
+
+    // put the space back to make xxxxx000 ---208
+    printf("test ((x >> (p+1-n)) ^ ((1<<n)-1)) << (p+1-n) is %d \n ", ((x >> (p+1-n)) ^ ((1<<n)-1)) << (p+1-n));
+
+    // now create 00000xxx - x & 00000111 -> (1<<(p+1-n))-1 ---7
     
-    // & x to get extract p+1 BITS - 0001010
-    // (~(~0 << (p+1))) & x 
+    printf ("test ((1<<(p+1-n))-1 is %d \n ", (1<<(p+1-n))-1);
 
-    // flip ~ let's say 00010101  (nbits nit is 10) so it become 1110101 - we need the first 2 bits to be 0
-    //  ~((~(~0 << (p+1))) & x)
+    // x &  -1
+    printf ("test ((1<<(p+1-n))-1 is %d \n ", x & ((1<<(p+1-n))-1));
 
-    // use the 0011111 mask again for AND op 1110101  so it become 0010101 - 21
-    // ~(~0 << (p+1)) &  ~((~(~0 << (p+1))) & x)
+    printf ("test (x & ((1<<(p+1-n))-1)) ^ (((x >> (p+1-n)) ^ ((1<<n)-1)) << (p+1-n)) is %d \n ", (x & ((1<<(p+1-n))-1)) ^ (((x >> (p+1-n)) ^ ((1<<n)-1)) << (p+1-n)));
 
-    printf ("test ~(~0 << (p+1)) &  ~((~(~0 << (p+1))) & x) is %d \n ", ~(~0 << (p+1)) &  ~((~(~0 << (p+1))) & x));
-
-    // >> get rid of p+1-n then get it back << p+1-n -> 00001000 
-    // (~(~0 << (p+1)) &  ~((~(~0 << (p+1))) & x)) >> (p+1-n) << (p+1-n)) --- 000nn000 = 0010000 -16
-    printf ("test (~(~0 << (p+1)) &  ~((~(~0 << (p+1))) & x)) >> (p+1-n) << (p+1-n)) is %d \n", (~(~0 << (p+1)) &  ~((~(~0 << (p+1))) & x)) >> (p+1-n) << (p+1-n));
-    // 
-    // another bits to make xxx00xxx
-    // create 11100111 (231) 
-    printf ("test (~(~0 << n)<<(p+1-n)) is %d \n ", (~(~0 << n)<<(p+1-n)));
-    printf ("test ~(~(~0 << n)<<(p+1-n)) is %d \n ", ~(~(~0 << n)<<(p+1-n)));
-    // Starting 11 does not work, need another way
-
-    //then OR x to xxx00xxx
-    // ~(~(~0 << n)<<(p+1-n)) | x
-
-    // then you can hhave 000nn000 or xxx00xxx
-
-
-
-
-    //( ((~(~0 << (p+1))) & ~((~(~0 << (p+1-n))) & x)>>p+1-n) <<p+1-n) | (~(~(~0 << n)<<(p+1-n)) | x)
-
-
-    //return (~(~0 << (p+1)) &  ~((~(~0 << (p+1))) & x)) >> (p+1-n) << (p+1-n)) | (~(~(~0 << n) << (p+1-n)) | x));
-
-
-    // some note
-    // nbits -> 2 to the power of n -1
-    // 1<<2   ---> 100
-    // 1<<n - 1   ---> 011
- 
-    // n = n | (n>>1) ->this way expand the mask 1
-    // 
-
-
-    // create masks 
-    // 
-return 0;
+return (x & ((1<<(p+1-n))-1)) ^ (((x >> (p+1-n)) ^ ((1<<n)-1)) << (p+1-n));
 
 
 }
