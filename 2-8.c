@@ -3,6 +3,8 @@
 
 /*
 Write a function rightrot(x,n) that returns the value of the integer x rotated to the right by n bit position
+
+oh no i think i created wrong way around
 */
 
 unsigned rightrot(unsigned x, int n);
