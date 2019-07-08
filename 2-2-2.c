@@ -31,11 +31,12 @@ int main(){
     return 0;
 }
 
+
 /* 
-    getLine:     read a line return int - the length 
-    (changed the name from getline as stdio.h has a declared func with the same name) 
-    arg[0]: char array - input text
-    arg[1]: int -  the maimum limit of the length of input text (arg [0]) 
+getLine:     read a line return int - the length 
+(changed the name from getline as stdio.h has a declared func with the same name) 
+arg[0]: char array - input text
+arg[1]: int -  the maimum limit of the length of input text (arg [0]) 
 */
 
 int getLine(char line[]){
@@ -60,11 +61,12 @@ int getLine(char line[]){
     return i;
 }
 
+
 /* 
-    copyAppend:     read a line append onto  
-    arg[0]: char array - where appending to 
-    arg[1]: char array - to get appended onto arg[0]
-    arg[2]: int - index of arg[0] where appending from 
+copyAppend:     read a line append onto  
+arg[0]: char array - where appending to 
+arg[1]: char array - to get appended onto arg[0]
+arg[2]: int - index of arg[0] where appending from 
 */
 
 void copyAppend (char to[], char from[], int j){

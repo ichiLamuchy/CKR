@@ -1,5 +1,6 @@
-#include <stdio.h>
 /* acopy input to ouput - replace one of more blank by a single blank*/
+
+#include <stdio.h>
 
 int main(){
     int c, c2;

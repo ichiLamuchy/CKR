@@ -1,6 +1,9 @@
+/* 
+copy its input to output make visible on tab to \t blank space to \b backslash to \\ 
+*/
+
 #include <stdio.h>
 
-/* copy its input to output make visible on tab to \t blank space to \b backslash to \\ */
 int main(){
     int c, tab, space, backslash;
     tab = 't';

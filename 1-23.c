@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 /*
 program to remove all comments from a C program. 
 
@@ -7,6 +5,9 @@ Comment rule
 using slash star star slash not //
 Comment will not be nested within single and double quotes
 */
+
+
+#include <stdio.h>
 
 #define MAXNUMBER 100               // Max number of input
 
@@ -63,16 +64,16 @@ void get_input(char input[], int lim){
             input[i] = c;
         }
     }
-    input [i] = '\0';
-    
+    input [i] = '\0';   
 }
 
+
 /* 
-    search_end_comment:     serch the end of comment 
-    
-    They camn be omit
-    arg[0]: int - '*'
-    arg[1]: int - '/'
+search_end_comment:     serch the end of comment 
+
+They camn be omit
+arg[0]: int - '*'
+arg[1]: int - '/'
 */
 
 void search_end_comment (int a, int b){     

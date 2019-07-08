@@ -1,9 +1,10 @@
-#include <stdio.h>
-#include <stdbool.h>
-
 /* 
 Create entab programe - replace 4 white space in the input to a tub
 */
+
+
+#include <stdio.h>
+#include <stdbool.h>
 
 #define MAXNUMBER 100               // Max number of input
 #define WS 4                        // white space
@@ -38,9 +39,9 @@ int main(){
 
 
 /* 
-    entub:     switch tub to number of white spaces
-    arg[0]: char array - input text
-    arg[1]: current index number
+entub:     switch tub to number of white spaces
+arg[0]: char array - input text
+arg[1]: current index number
 */
 
 bool entub (char input[], int i){
@@ -57,9 +58,9 @@ bool entub (char input[], int i){
 }
 
 /* 
-    getLine:     read a line return int - the length 
-    arg[0]: char array - input text
-    arg[1]: int -  the maimum limit of the length of input text (arg [0]) 
+getLine:     read a line return int - the length 
+arg[0]: char array - input text
+arg[1]: int -  the maimum limit of the length of input text (arg [0]) 
 */
 
 int getLine(char input[], int lim){
@@ -88,10 +89,10 @@ int getLine(char input[], int lim){
 }
 
 /* 
-    copyAppend:     read a line append onto  
-    arg[0]: char array - where appending to 
-    arg[1]: char array - to get appended onto arg[0]
-    arg[2]: int - index of arg[0] where appending from 
+copyAppend:     read a line append onto  
+arg[0]: char array - where appending to 
+arg[1]: char array - to get appended onto arg[0]
+arg[2]: int - index of arg[0] where appending from 
 */
 
 void copyAppend (char to[], char from[], int j){    

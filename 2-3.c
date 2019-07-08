@@ -27,8 +27,7 @@ https://www.tutorialspoint.com/c_standard_library/c_function_isxdigit.htm
 */
 
 
-// also define max number of imput
-// 
+/* also define max number of imput */
 
 
 int hextoi (char str1[]);
@@ -111,6 +110,7 @@ int hextoi (char str1[]){
      return add_all;
 }
 
+
 /*
 check if it is starting "\x",  "0x" or "OX"
 if it sterts with "\x" ----- here you need to figure out hopefully does the conversion straight away
@@ -126,16 +126,12 @@ plan 2:
 the return need to be string as int can be any of actual number on but we will figure out once we could see 
 
 */
+
 int is_hex (char str1[]){
 
     //int i =0;
     int j = 0;
-    /*
-    if (str1 [0]== '\x'){
 
-        // TODO ________impliment to get if '\x' - use library
-        return 1;
-    } else */
     if (str1[0] == '0' && (str1[1]== 'x' || str1[1]== 'X')){
         j = 2;
         return 2;
@@ -145,19 +141,3 @@ int is_hex (char str1[]){
     }
 
 }
-
-// PLAN ------
-//what need to be done.
-
-// define HEXNUM 16
-// start reading string char[] = "" on main - this can be taken from stdin if needed to be
-
-// on is_hex finction for true or false / retutn str with out the mark of it
-// if the first one is /x -> defined as hex -> make a true mark on is_hex this defined as false on intialisation
-// if the first one is 0 and second one is x or X    if (num[i] == 0 && (num[i+1]== 'x' || num[i+1]== 'X')) mark is_hex to true
-// next condition if is_hex  then convert so 
-
-// second function to convert hex to int
-// tale len of the string using strlen then loop  (k)
-// can i use power you can use pow from math.h
-// for loop to go num [j] * pow (16, k) where k is decreasing number -> len - j -1

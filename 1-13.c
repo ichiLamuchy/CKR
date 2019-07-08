@@ -1,8 +1,12 @@
+/* 
+write histogramme of the lengh of words in its input
+*/
+
+
 #include <stdio.h>
 #define VLINE 100 /* to be print out "|" */
 #define NEXT__VLINE 50  /* to be print out " "  once then "|" after that*/
 
-/* write histogramme of the lengh of words in its input*/
 int main(){
 
     int i, k, l, m, c, wc, maxvalue;

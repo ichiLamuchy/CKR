@@ -38,7 +38,3 @@ unsigned invert (unsigned x, int p, int n){
 /*
 Take away from here - if you wanna use mask starting 111 like 11100111 then just use ^ 00011000
 */
-
-
-
-

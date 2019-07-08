@@ -1,9 +1,10 @@
-#include <stdio.h>
-
 /*
 Programe to hold long input
 it should happen the closest nth column
 */
+
+
+#include <stdio.h>
 
 #define MAXNUMBER 100               // Max number of input
 
@@ -23,10 +24,10 @@ int main(){
 
 
 /* 
-    get_input:     read inputs  
-    
-    arg[0]: char array - input text
-    arg[1]: int -  the maimum limit of the length of input text (arg [0]) 
+get_input:     read inputs  
+
+arg[0]: char array - input text
+arg[1]: int -  the maimum limit of the length of input text (arg [0]) 
 */
 
 void get_input(char input[], int lim){
@@ -60,17 +61,18 @@ void get_input(char input[], int lim){
             input[i] = c;
         }
     }
-    input [i] = '\0';
-    
+    input [i] = '\0';    
 }
 
+
 /* 
-    search_end_comment:     serch the end of comment 
-    
-    They camn be omit
-    arg[0]: int - '*'
-    arg[1]: int - '/'
+search_end_comment:     serch the end of comment 
+
+They camn be omit
+arg[0]: int - '*'
+arg[1]: int - '/'
 */
+
 void search_end_comment (int a, int b){     
     int c, d;
     // get first 2
@@ -84,4 +86,3 @@ void search_end_comment (int a, int b){
         }        
     }
 }
-

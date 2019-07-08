@@ -1,12 +1,11 @@
-#include <stdio.h>
-#include <string.h>
-
-// #include <typr.h>   // this has isapha but does not need unless you wanna define
-
 /*
  Write an alternate version of squeeze (s 1,s2) that deletes
  each character in s 1 that matches any character in the string s2.
 */
+
+
+#include <stdio.h>
+#include <string.h>
 
 #define LIM 10
 #define MAX 20
@@ -26,6 +25,7 @@ int main(){
 
     return 0;
 }
+
 
 /*
 c_squeeze: deletes each character in str1 that matches any character in the string s2
@@ -72,11 +72,12 @@ void c_squeeze (char str1[], char str2[]){
         str1[j++] = '\0';       
 }
 
+
 /* 
-    getLine:     read a line return int - the length 
-    (changed the name from getline as stdio.h has a declared func with the same name) 
-    arg[0]: char array - input text
-    arg[1]: int -  the maimum limit of the length of input text (arg [0]) 
+getLine:     read a line return int - the length 
+(changed the name from getline as stdio.h has a declared func with the same name) 
+arg[0]: char array - input text
+arg[1]: int -  the maimum limit of the length of input text (arg [0]) 
 */
 
 int  get_line1(char a[], char b[]){
@@ -100,4 +101,3 @@ int  get_line1(char a[], char b[]){
 
     return i;
 }
-

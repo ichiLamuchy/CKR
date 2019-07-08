@@ -40,12 +40,8 @@ int main (){
     return 0 ;
 }
 
-
-
-
 void c_test_bitwise_op (unsigned x, int p, int n, unsigned y){
 
- 
 // steps to take
 // 1 - with x we make xxx11xxx 
 
@@ -60,12 +56,10 @@ printf ("x | ((~(~0 << n))<< (p+1-n)) is %d \n", x | (~(~0 << n))<< (p+1-n));
 
 // 2-1 to do it, we need to craete 11100111 filter to do 000xx000 to and (&)
 // 2-1-1 create 11100000
-
 printf ("(~0 << (p+1))is %d \n", (~0 << (p+1)));
 
 
 // 2-1-2 create 000000111
-
 printf ("(~0 << (p+1-n) is %d \n", (~0 << (p+1-n)));
 
 // or (|) operate on 11100000 | 00000111 should gives you 11100111 this is filter to get a value
@@ -81,17 +75,9 @@ printf ("(y & (~(~0<<n))  is %d \n", (y & (~(~0<<n))));
 
 printf ("(y & (~(~0<<n))<< (p+1-n)is %d \n", (y & (~(~0<<n)))<< (p+1-n));
 
-
 // 3 combine to gether 11100111  & ((y & 00000011 )<< (p+1-n)) - push it to the right place
-
 printf ("(x | (~(~0 << n))<< (p+1-n))& (y & (~(~0<<n))<< (p+1-n)) is %d \n", (x | (~(~0 << n))<< (p+1-n))& (y & (~(~0<<n)))<< (p+1-n));
 
 printf ("done it should be 217 \n");
 
-
-
-
-
 }
-
-

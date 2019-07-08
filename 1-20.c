@@ -1,8 +1,10 @@
-#include <stdio.h>
-
-/* detab programe - replace tub in the input to a set of numbrer of white space
+/* 
+detab programe - replace tub in the input to a set of numbrer of white space
 should that n be parameter or variable
 */
+
+
+#include <stdio.h>
 
 #define MAXNUMBER 100               // Max number of input
 #define WS 2                        // white space
@@ -37,11 +39,11 @@ int main(){
 
 
 /* 
-    detub:     switch tub to w number of white spaces
-    (changed the name from getline as stdio.h has a declared func with the same name) 
-    arg[0]: char array - input text
-    arg[1]: current index number
-    arg[2]: number of the white space per tab
+detub:     switch tub to w number of white spaces
+(changed the name from getline as stdio.h has a declared func with the same name) 
+arg[0]: char array - input text
+arg[1]: current index number
+arg[2]: number of the white space per tab
 */
 
 void detub (char input[], int i, int c){

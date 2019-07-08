@@ -3,6 +3,7 @@ Rewrite the function lower,which converts uppercase letters
 to lowercase, with a conditional expression instead of if-else. 
 */
 
+
 #include <stdio.h>
 
 int lower_basic(int c);

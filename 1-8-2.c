@@ -1,5 +1,7 @@
-#include <stdio.h>
 /* Count tabs blanks and new lines dont know if excute */
+
+#include <stdio.h>
+
 int main(){
 
     int c, i;

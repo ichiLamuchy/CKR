@@ -1,4 +1,6 @@
-/* write histogramme of frequesncy of charactors in its input*/
+/* 
+write histogramme of frequesncy of charactors in its input
+*/
 
 # include <stdio.h>
 

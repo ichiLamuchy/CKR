@@ -1,3 +1,8 @@
+/* 
+print all input lines but get rid of trails 
+*/
+
+
 #include <stdio.h>
 
 #define MAXLINE 60              /* maximum input of size */
@@ -6,8 +11,6 @@
 int getLineNoTrails(char line[], int maxline);
 void copyAppend(char to[], char from[], int j);
 
-
-/* print all input lines but get rid of trails */
 int main(){
 
     int len;                    /* line length by getchar */   
@@ -42,10 +45,10 @@ int main(){
 
 
 /* 
-    getLineNoTrails:     read a line return int - the length without any ' ' or '\t' on trail
-    (changed the name from getline as stdio.h has a declared func with the same name) 
-    arg[0]: char array - input text
-    arg[1]: int -  the maimum limit of the length of input text (arg [0]) 
+getLineNoTrails:     read a line return int - the length without any ' ' or '\t' on trail
+(changed the name from getline as stdio.h has a declared func with the same name) 
+arg[0]: char array - input text
+arg[1]: int -  the maimum limit of the length of input text (arg [0]) 
 */
 int  getLineNoTrails(char a[], int lim){
     
@@ -66,10 +69,10 @@ int  getLineNoTrails(char a[], int lim){
 }
 
 /* 
-    copyAppend:     read a line append onto  
-    arg[0]: char array - where appending to 
-    arg[1]: char array - to get appended onto arg[0]
-    arg[2]: int - index of arg[0] where appending from 
+copyAppend:     read a line append onto  
+arg[0]: char array - where appending to 
+arg[1]: char array - to get appended onto arg[0]
+arg[2]: int - index of arg[0] where appending from 
 */
 void copyAppend (char to[], char from[], int j){    
     int i;
@@ -80,4 +83,3 @@ void copyAppend (char to[], char from[], int j){
     }
     to[j] = '\n';   
 }
-

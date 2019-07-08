@@ -1,8 +1,11 @@
-#include <stdio.h>
+/* 
+Write a function reverse (s) that reverses the character strings.
+Use it to write programme which reverse the charactor string s 
+in input a line at a time 
+*/
 
-/* Write fincto reverse */
-/* tehn use it to write programme which reverse the charactor string s 
-in input a line at a time */
+
+#include <stdio.h>
 
 
 #define MAXLINE 20              /* maximum input of size */
@@ -40,10 +43,10 @@ int main(){
 
 
 /* 
-    getLine:     read a line return int - the length of input
-    (changed the name from getline as stdio.h has a declared func with the same name) 
-    arg[0]: char array - input text
-    arg[1]: int -  the maimum limit of the length of input text (arg [0]) 
+getLine:     read a line return int - the length of input
+(changed the name from getline as stdio.h has a declared func with the same name) 
+arg[0]: char array - input text
+arg[1]: int -  the maimum limit of the length of input text (arg [0]) 
 */
 int  getLine(char a[], int lim){
     
@@ -58,10 +61,10 @@ int  getLine(char a[], int lim){
 }
 
 /* 
-    reverse:     get ricerse order of a string  
-    arg[0]: char array - reversed text
-    arg[1]: char array - original text
-    arg[2]: int - length of arg[1] 
+reverse:     get ricerse order of a string  
+arg[0]: char array - reversed text
+arg[1]: char array - original text
+arg[2]: int - length of arg[1] 
 */
 void reverse (char to[], char from[], int j){    
     int i;

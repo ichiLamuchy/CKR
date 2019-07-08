@@ -26,12 +26,12 @@ int main (){
 
 unsigned c_bitwise_op (unsigned x, int p, int n, unsigned y){
     
-    /*
-    create mask 11100111 then use & x -> xxx00xxx
-    extract n bits value from y then << p+1-n -> 000yy000
-    xxx00xxx | 000yy000
-    (when you need to convine just line up the mask either 0 (|) or 1 (&))
-    */
+/*
+create mask 11100111 then use & x -> xxx00xxx
+extract n bits value from y then << p+1-n -> 000yy000
+xxx00xxx | 000yy000
+(when you need to convine just line up the mask either 0 (|) or 1 (&))
+*/
     
 
     return ((x & ~(~(~0 << n) << (p+1-n))) | ((y & ~(~0<<n))<< (p+1-n)));

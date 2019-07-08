@@ -1,5 +1,6 @@
-#include <stdio.h>
 /* Count tabs blanks and new lines */
+
+#include <stdio.h>
 
 int main(){
     int c, i;

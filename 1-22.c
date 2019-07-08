@@ -1,9 +1,9 @@
-#include <stdio.h>
-
 /*
 Programe to hold long input
 it should happen the closest nth column
 */
+
+#include <stdio.h>
 
 #define MAXNUMBER 100               // Max number of input
 #define N 20                        // Max width of a line
@@ -42,10 +42,12 @@ findspace:      Reading back word tp find white space from the nth charctor
 arg[0]: char array - input text
 arg[1]: current index 
 */
+
 int findspace(char input[], int i){
 
     int j; 
     j = 0;
+
     // looks ugry but I dont like do loop
     while (input[i-j] != ' ' || input[i-j] != '\t'){
         j++;
@@ -60,16 +62,17 @@ int findspace(char input[], int i){
 
 
 /* 
-    getLine:     read a line return int - the length 
-    (changed the name from getline as stdio.h has a declared func with the same name) 
-    arg[0]: char array - input text
-    arg[1]: int -  the maimum limit of the length of input text (arg [0]) 
+getLine:     read a line return int - the length 
+(changed the name from getline as stdio.h has a declared func with the same name) 
+arg[0]: char array - input text
+arg[1]: int -  the maimum limit of the length of input text (arg [0]) 
 */
 
 int getLine(char input[], int lim){
     int i, j, k, l;
     l = 0;
     j = 0;
+
     // getchar up till eof or newline
     for (i = 0; i < lim - 1 && (k = getchar()) != EOF && k != '\n'; i++){
 
@@ -86,10 +89,10 @@ int getLine(char input[], int lim){
 }
 
 /* 
-    copyAppend:     read a line append onto  
-    arg[0]: char array - where appending to 
-    arg[1]: char array - to get appended onto arg[0]
-    arg[2]: int - index of arg[0] where appending from 
+copyAppend:     read a line append onto  
+arg[0]: char array - where appending to 
+arg[1]: char array - to get appended onto arg[0]
+arg[2]: int - index of arg[0] where appending from 
 */
 
 void copyAppend (char to[], char from[], int j){    

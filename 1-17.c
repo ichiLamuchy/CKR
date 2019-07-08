@@ -1,3 +1,8 @@
+/* 
+print all input lines that are longer than 80 characters 
+*/
+
+
 #include <stdio.h>
 #define MAXLINE 20              /* maximum input of size */
 #define CHARNUM 3               /* Character Number */
@@ -5,8 +10,6 @@
 int getLine(char line[], int maxline);
 void copyAppend(char to[], char from[], int j);
 
-
-/* print all input lines that are longer than 80 characters */
 int main(){
 
     int len;                    /* line length by getchar */   
@@ -42,11 +45,12 @@ int main(){
 
 
 /* 
-    getLine:     read a line return int - the length 
-    (changed the name from getline as stdio.h has a declared func with the same name) 
-    arg[0]: char array - input text
-    arg[1]: int -  the maimum limit of the length of input text (arg [0]) 
+getLine:     read a line return int - the length 
+(changed the name from getline as stdio.h has a declared func with the same name) 
+arg[0]: char array - input text
+arg[1]: int -  the maimum limit of the length of input text (arg [0]) 
 */
+
 int  getLine(char a[], int lim){
     
     int c, i;
@@ -58,16 +62,17 @@ int  getLine(char a[], int lim){
     }
     // once excuted it will be added as ++i so no need to add extra
     a[i] = '\0';
-    return i;
-    
+    return i;    
 }
 
+
 /* 
-    copyAppend:     read a line append onto  
-    arg[0]: char array - where appending to 
-    arg[1]: char array - to get appended onto arg[0]
-    arg[2]: int - index of arg[0] where appending from 
+copyAppend:     read a line append onto  
+arg[0]: char array - where appending to 
+arg[1]: char array - to get appended onto arg[0]
+arg[2]: int - index of arg[0] where appending from 
 */
+
 void copyAppend (char to[], char from[], int j){    
     int i;
     i = 0;
