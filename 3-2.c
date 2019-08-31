@@ -37,15 +37,18 @@ when you make a fuction you do mot need define the size of stri (char array) so 
 #include <stdio.h>
 #include <string.h>
 
-#define MAXNUMBER 20  /* number of array */
+#define MAXNUMBER 100  /* number of array */
 
 void escape_1 (char str[], char strout[]);
 
 int main (){
 
-    char str [] = {'i', 'c', 'h', 'i', '\n'};
+    //char str [] = {'i', 'c', 'h', 'i', '\n'};
+    char str[] = "ichi \n want to \t this to \b happen ";
+    printf ("original one is %s \n", str);
     char strout [MAXNUMBER];
     escape_1(str, strout);
+    printf ("converted one is %s \n", strout);
     return 0;
 }
 
@@ -55,6 +58,7 @@ void escape_1 (char str[], char strout[]){
     */
     int i = 0;
     int n = strlen(str);  
+    printf ("strlen is %d \n", n);
     if ( n > MAXNUMBER)
         printf ("the strng is too big \n");
 
@@ -62,23 +66,22 @@ void escape_1 (char str[], char strout[]){
 
         switch (str[j]){
             case '\n': 
-                strout[i] = '\\';
-                printf ("%c", strout[i]);
-                strout[++i] = 'n';
-                printf ("%c", strout[i]);
+                strout[i++] = '\\';
+                strout[i++] = 'n';
                 break;
             case '\b':
-                strout[i] = '\\';
-                printf ("%c", strout[i]);
-                strout[++i] = 'b';
-                printf ("%c", strout[i]);
+                strout[i++] = '\\';
+                strout[i++] = 'b';
                 break;
             default:
-                strout[i] = str [j];
-                printf ("%c", strout[i]);
+                strout[i++] = str [j];
                 break;
         }    
     }
+        strout[i] = '\0';
+        printf ("%c", strout[i]);
 
+        
+    
 }
 
