@@ -40,22 +40,22 @@ when you make a fuction you do mot need define the size of stri (char array) so 
 #define MAXNUMBER 100  /* number of array */
 
 void escape_1 (char str[], char strout[]);
+void reverse_escape_1 (char str[], char strout[]);
+
 
 int main (){
 
-    //char str [] = {'i', 'c', 'h', 'i', '\n'};
-    char str[] = "ichi \n want to \t this to \b happen ";
+    char str[] = "ichi \\n want to \\t this to happen ";
     printf ("original one is %s \n", str);
     char strout [MAXNUMBER];
-    escape_1(str, strout);
+    //escape_1(str, strout);
+    reverse_escape_1(str, strout);
     printf ("converted one is %s \n", strout);
     return 0;
 }
 
 void escape_1 (char str[], char strout[]){
-    /* 
-    condition to check the max elements on array
-    */
+
     int i = 0;
     int n = strlen(str);  
     printf ("strlen is %d \n", n);
@@ -71,7 +71,7 @@ void escape_1 (char str[], char strout[]){
                 break;
             case '\b':
                 strout[i++] = '\\';
-                strout[i++] = 'b';
+                strout[i++] = 't';
                 break;
             default:
                 strout[i++] = str [j];
@@ -79,9 +79,39 @@ void escape_1 (char str[], char strout[]){
         }    
     }
         strout[i] = '\0';
-        printf ("%c", strout[i]);
+        printf ("%c", strout[i]);   
+}
 
-        
-    
+void reverse_escape_1 (char str[], char strout[]){
+        int i = 0;
+    int n = strlen(str);  
+    printf ("strlen is %d \n", n);
+    if ( n > MAXNUMBER)
+        printf ("the strng is too big \n");
+
+    for (int j = 0; j < n; j++){
+
+        switch (str[j]){
+            case '\\':
+                
+                j++;
+                switch (str[j]){
+                    case 'n': 
+                        strout[i++] = '\n';
+                        break;
+                    case 't':
+                        strout[i++] = '\t';
+                        break;
+                }
+            break;   
+            default:
+                strout[i++] = str [j];
+                break;
+        }    
+    }
+        strout[i] = '\0';
+        printf ("%c", strout[i]);   
+
+
 }
 
