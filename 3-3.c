@@ -37,20 +37,37 @@ n = strlen (s1);
         if ((s1[i] >= '0' && s1[i] <= '9') && (s1[i+2] >= '0' && s1[i+2] <= '9')){
             whattype = 1;
         }
-        else if ((s1[i] >= 'A' && s1[i] <= 'Z') && (s1[i+2] >= 'A' && s1[i+2] <= 'Z')) {
+        else if ((s1[i] >= 'A' && s1[i] <= 'Z')&& (s1[i+2] >= 'A' && s1[i+2] <= 'Z')) {
             whattype = 2;
         }
         else if ((s1[i] >= 'a' && s1[i] <= 'z') && (s1[i+2] >= 'a' && s1[i+2] <= 'z')){
             whattype = 3;
         }
 
-        if ((whattype==1 || whattype==2 || whattype==3)&& s1[i+1] == '-'  && s1[i] < s1[i+2]){
-            for (j=i+c, len = s1[i+2]-s1[i] + 1; j-i-c < len ; j++ ){
+        if ((whattype==1 || whattype==2 || whattype==3  )&& s1[i+1] == '-'  && s1[i] < s1[i+2]){
+            for (j=i+c, len = s1[i+2]-s1[i] +1; j-i-c < len ; j++ ){
                 
                 s2[j] = s1[i]+(j-i-c);
                
             }
         }
+    /* *
+        else if (whattype==2 && s1[i+1] == '-' && s1[i] < s1[i+2]){
+            for (j=i+c, len = s1[i+2]-s1[i] +1; j-i-c < len ; j++ ){
+               
+                s2[j] = s1[i]+(j-i-c);
+                
+            }
+        }
+        else if (whattype==3 && s1[i+1] == '-' && s1[i]<s1[i+2]){
+            //printf ("yay\n");
+            for (j=c, len = s1[i+2]-s1[i] +1; j-c < len ; j++ ){
+
+                s2[j] = s1[i]+(j-c);
+
+            }
+        }   
+        */
         c +=len;
         i += 3; 
           

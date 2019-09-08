@@ -6,7 +6,7 @@ In particular, itob (n, s, 16) formats n as a hexadecimal integer in s.
 conversting int n base b then print out 
 */
 
-/* to do : there is no error fall back */ 
+/* to do : there is no error fall back  */ 
 
 
 
